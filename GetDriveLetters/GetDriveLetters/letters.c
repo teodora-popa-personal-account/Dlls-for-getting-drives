@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<Windows.h>
 
-__declspec(dllexport) char* GetDriveLetters()
+__declspec(dllexport) char** GetDriveLetters()
 {
 	DWORD logicalDrives = GetLogicalDrives();
 	char* logicalDrivesLetters = (char*)malloc(27 * sizeof(char));
