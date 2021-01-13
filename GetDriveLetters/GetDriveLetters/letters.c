@@ -19,7 +19,7 @@ __declspec(dllexport) char** GetDriveLetters()
 				char* letterString = (char*)malloc(2 * sizeof(char));
 				letterString[0] = letter;
 				letterString[1] = '\0';
-				strcat_s(logicalDrives,27,letterString);
+				strcat_s(logicalDrivesLetters,27,letterString);
 			}
 		}
 	}
