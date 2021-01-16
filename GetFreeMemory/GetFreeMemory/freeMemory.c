@@ -3,11 +3,9 @@
 
 __declspec(dllexport) ULONGLONG GetFreeMemory(char* path)
 {
+	ULARGE_INTEGER ulTotal;
 	ULARGE_INTEGER ulFree;
-	ULARGE_INTEGER a;
-	ULARGE_INTEGER b;
-	GetDiskFreeSpaceExA(path, &a, &b, &ulFree);
-	ULONGLONG freeSpace = ulFree.QuadPart;
-
-	return freeSpace;
+	ULARGE_INTEGER ulFreeForUser;
+	GetDiskFreeSpaceExA(path, &ulFreeForUser, &ulTotal, &ulFree);
+	return ulFree.QuadPart;
 }

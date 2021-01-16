@@ -14,13 +14,11 @@
 //	return arr;
 //}
 
-__declspec(dllexport) ULONGLONG GetTotalSpace(char* path)
+__declspec(dllexport) double GetTotalSpace(char* path)
 {
 	ULARGE_INTEGER ulTotal;
 	ULARGE_INTEGER ulFree;
 	ULARGE_INTEGER ulFreeForUser;
 	GetDiskFreeSpaceExA(path, &ulFreeForUser, &ulTotal, &ulFree);
-	ULONGLONG total = ulTotal.QuadPart;
-	
-	return total;
+	return (double)(ulTotal.QuadPart / 1073741824);
 }
